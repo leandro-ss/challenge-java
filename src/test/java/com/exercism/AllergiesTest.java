@@ -1,14 +1,12 @@
 package com.exercism;
 
-import org.junit.Test;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.Collections;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import java.util.Collections;
 
 public class AllergiesTest {
 
@@ -16,32 +14,32 @@ public class AllergiesTest {
     public void noAllergiesMeansNotAllergicToAnything() {
         Allergies allergies = new Allergies(0);
 
-        assertFalse(allergies.isAllergicTo(Allergen.PEANUTS));
-        assertFalse(allergies.isAllergicTo(Allergen.CATS));
-        assertFalse(allergies.isAllergicTo(Allergen.STRAWBERRIES));
+        Assertions.assertFalse(allergies.isAllergicTo(Allergen.PEANUTS));
+        Assertions.assertFalse(allergies.isAllergicTo(Allergen.CATS));
+        Assertions.assertFalse(allergies.isAllergicTo(Allergen.STRAWBERRIES));
     }
 
     @Test
     public void allergicToEggs() {
         Allergies allergies = new Allergies(1);
 
-        assertTrue(allergies.isAllergicTo(Allergen.EGGS));
+        Assertions.assertTrue(allergies.isAllergicTo(Allergen.EGGS));
     }
 
     @Test
     public void allergicToEggsInAdditionToOtherStuff() {
         Allergies allergies = new Allergies(5);
 
-        assertTrue(allergies.isAllergicTo(Allergen.EGGS));
-        assertTrue(allergies.isAllergicTo(Allergen.SHELLFISH));
-        assertFalse(allergies.isAllergicTo(Allergen.STRAWBERRIES));
+        Assertions.assertTrue(allergies.isAllergicTo(Allergen.EGGS));
+        Assertions.assertTrue(allergies.isAllergicTo(Allergen.SHELLFISH));
+        Assertions.assertFalse(allergies.isAllergicTo(Allergen.STRAWBERRIES));
     }
 
     @Test
     public void noAllergies() {
         Allergies allergies = new Allergies(0);
 
-        assertEquals(0, allergies.getList().size());
+        Assertions.assertEquals(0, allergies.getList().size());
     }
 
     @Test
@@ -49,7 +47,7 @@ public class AllergiesTest {
         Allergies allergies = new Allergies(1);
         List<Allergen> expectedAllergens = Collections.singletonList(Allergen.EGGS);
 
-        assertEquals(expectedAllergens, allergies.getList());
+        Assertions.assertEquals(expectedAllergens, allergies.getList());
     }
 
     @Test
@@ -57,7 +55,7 @@ public class AllergiesTest {
         Allergies allergies = new Allergies(2);
         List<Allergen> expectedAllergens = Collections.singletonList(Allergen.PEANUTS);
 
-        assertEquals(expectedAllergens, allergies.getList());
+        Assertions.assertEquals(expectedAllergens, allergies.getList());
     }
 
     @Test
@@ -65,7 +63,7 @@ public class AllergiesTest {
         Allergies allergies = new Allergies(8);
         List<Allergen> expectedAllergens = Collections.singletonList(Allergen.STRAWBERRIES);
 
-        assertEquals(expectedAllergens, allergies.getList());
+        Assertions.assertEquals(expectedAllergens, allergies.getList());
     }
 
     // @Test

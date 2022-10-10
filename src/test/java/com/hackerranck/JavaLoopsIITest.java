@@ -1,14 +1,13 @@
 package com.hackerranck;
 
-import static org.junit.Assert.assertEquals;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,7 +32,7 @@ public class JavaLoopsIITest{
 
         for (int i=0; i < list.size(); i++){
 
-            assertEquals(list.get(i), Files.readAllLines(FILE_OUTPUT).get(i));  
+            Assertions.assertEquals(list.get(i), Files.readAllLines(FILE_OUTPUT).get(i));  
         }
     }
 }

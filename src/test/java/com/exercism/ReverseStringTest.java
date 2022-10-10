@@ -1,9 +1,9 @@
 package com.exercism;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ReverseStringTest {
 
@@ -12,25 +12,25 @@ public class ReverseStringTest {
         assertEquals("", new ReverseString().reverse(""));
     }
 
-    @Ignore("Remove to run test")
+    @Disabled
     @Test
     public void testAWord() {
         assertEquals("tobor", new ReverseString().reverse("robot"));
     }
 
-    @Ignore("Remove to run test")
+    @Disabled
     @Test
     public void testACapitalizedWord() {
         assertEquals("nemaR", new ReverseString().reverse("Ramen"));
     }
 
-    @Ignore("Remove to run test")
+    @Disabled
     @Test
     public void testASentenceWithPunctuation() {
         assertEquals("!yrgnuh m'I", new ReverseString().reverse("I'm hungry!"));
     }
 
-    @Ignore("Remove to run test")
+    @Disabled
     @Test
     public void testAPalindrome() {
         assertEquals("racecar", new ReverseString().reverse("racecar"));

@@ -1,8 +1,7 @@
 package com.hackerranck;
 
-import static org.junit.Assert.assertEquals;
-
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 
 public class JavaExamTest{
@@ -10,7 +9,7 @@ public class JavaExamTest{
     @Test
     public void testA() {
 
-        assertEquals("Yes", new JavaExam().isPossible(1, 4, 5, 9));
+        Assertions.assertEquals("Yes", new JavaExam().isPossible(1, 4, 5, 9));
         
     }
 

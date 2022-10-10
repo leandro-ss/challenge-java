@@ -3,16 +3,31 @@ package com.others.design.pattern.state;
 public abstract class State {
     final Player player;
 
-    /**
-     * Context passes itself through the state constructor. This may help a
-     * state to fetch some useful context data if needed.
-     */
     State(Player player) {
         this.player = player;
+        player.changeState(this);
     }
 
-    public abstract String onLock();
-    public abstract String onPlay();
-    public abstract String onNext();
-    public abstract String onPrevious();
+    public abstract State onStop();
+    public abstract State onPlay();
+    public abstract State onNext();
+    public abstract State onPause();
+    public abstract State onPrevious();
+    public abstract boolean isPlaying();
+
+    @Override
+    public final boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+    
+        return true;
+    }
+
 }

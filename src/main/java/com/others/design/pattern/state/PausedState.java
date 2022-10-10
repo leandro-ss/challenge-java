@@ -1,26 +1,28 @@
 package com.others.design.pattern.state;
 
 
-public class ReadyState extends State {
 
-    public ReadyState(Player player) {
+public class PausedState extends State {
+
+    PausedState(Player player) {
         super(player);
     }
 
     @Override
-    public State onStop() {    
+    public State onStop() {
         return new StoppedState(player);
     }
 
     @Override
     public State onPlay() {
-        return new PlayingState(player);
+        return new ReadyState(player);
     }
 
     @Override
     public State onPause() {
         return new PausedState(player);
     }
+
 
     @Override
     public State onNext() {
@@ -36,4 +38,5 @@ public class ReadyState extends State {
     public boolean isPlaying() {
         return false;
     }
+
 }

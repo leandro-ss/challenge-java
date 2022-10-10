@@ -1,25 +1,22 @@
 package com.others.design.pattern.state;
 
 
-public class ReadyState extends State {
 
-    public ReadyState(Player player) {
+public class StoppedState extends State {
+
+    StoppedState(Player player) {
         super(player);
+        player.resetCurrentTimeTrack();
     }
 
     @Override
-    public State onStop() {    
+    public State onStop() {
         return new StoppedState(player);
     }
 
     @Override
     public State onPlay() {
-        return new PlayingState(player);
-    }
-
-    @Override
-    public State onPause() {
-        return new PausedState(player);
+        return new ReadyState(player);
     }
 
     @Override
@@ -35,5 +32,11 @@ public class ReadyState extends State {
     @Override
     public boolean isPlaying() {
         return false;
+    }
+
+    @Override
+    public State onPause() {
+        // TODO Auto-generated method stub
+        return null;
     }
 }
